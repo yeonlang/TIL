@@ -113,7 +113,107 @@ git push -u origin master
 
 
 * Markdown 기록할 것입니다.
-
   * `typora` vs `vscode`
 
-* 
+### 파일조작
+
+* file write, read 활용해서 역순으로 저장
+
+* ```python
+  with open('SSAFY.txt','r', encoding='utf8') as f :
+      lines = f.readlines()
+      for line in lines :
+          print(line)
+  -------------------------------------------------------
+  ssafy.txt
+  1
+  2
+  3
+  ```
+
+* ```python 
+  with open('SSAFY.txt','r', encoding='utf8') as f :
+      lines = f.readlines()
+      for line in reversed(lines) :
+          print(line)
+  -------------------------------------------------------
+  ssafy_reverse.txt
+  3
+  2
+  1
+  6 5
+  43 32
+  21
+  ```
+
+* ``` python
+  #예시 코드
+  with open('SSAFY.txt','r', encoding='utf8') as f :
+      lines = f.readlines()
+      for line in lines :
+          print(line)
+  
+  #1.한번에 처리
+  with open('SSAFY.txt','r', encoding='utf8') as f :
+      lines = f.readlines()
+      with open('This is SSAFY!','w',encoding='utf8') as ff :
+      ff.writelines(reversed(lines))      
+      
+  #2.read/write 분리처리
+  with open('SSAFY.txt','r', encoding='utf8') as p :
+      lines = p.readlines()
+      lines.reverse()
+  
+  with open('This is SSAFY!','w',encoding='utf8') as pp :
+      pp.writelines(reversed(lines))        
+  ```
+
+* csv를 만들어주는 프로그램   
+
+  ```python
+  lunch = {
+      '횡성한우':'054-474-1235',
+      '영덕대게':'054-485-1841',
+      '영광굴비':'054-475-5689'
+  }
+  import csv
+  
+  with open('lunch.csv', 'w' , encoding = 'utf8', newline = '') as f:
+      csv_writer =csv.writer(f) #f는 파일 내용
+      for item in lunch.items():
+          csv_writer.writerow(item)
+      # for item in lunch.items(): # 리스트 [(key, value),...]
+      #     f.write(f'{item[0]},{item[1]}\n')  
+  ```
+
+### 크롤링
+
+* 네이버 실시간 랭킹 불러오는 프로그램  
+
+  ```python 
+  import requests
+  import bs4
+  
+  response = requests.get('https://www.naver.com/').text
+  soup = bs4.BeautifulSoup(response, 'html.parser')
+  result1 = soup.select('div.PM_CL_realtimeKeyword_list_base span.ah_r')
+  result2 = soup.select('div.PM_CL_realtimeKeyword_list_base span.ah_k')
+  i=0
+   for item in result2 :
+       print(f'{result1[i].text} / {item.text}')
+       i=i+1    
+  ```
+
+* 헤더파일을 추가하여 프로그램접근을 방지해놓은 곳에서 크롬을 통해 접속하는 것으로 착각하게 만든 프로그램
+
+  ```python
+  import requests
+  import bs4
+  
+  h= {
+      'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+  }
+  response = requests.get('https://www.melon.com/chart/index.htm',headers=h).text
+  soup = bs4.BeautifulSoup(response, 'html.parser')
+  print(response)
+  ```
