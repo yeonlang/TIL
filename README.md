@@ -222,4 +222,150 @@ git push -u origin master
 
 * https://startbootstrap.com/template-categories/all/
 * https://www.acmicpc.net/
+* 플라스크
+
+유용한 기능
+
+ctrl + D
+
+alt + 좌클릭
+
+
+
+### HTML, CSS
+
+* ``` HTML
+  <!DOCTYPE html>
+  <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="X-UA-Compatible" content="ie=edge">
+          <title>HTML Practice</title>
+          <style> 
+              h1 , h3{
+                  color: tomato;
+              }
+              h2{
+                  color: blue;
+              }
+              #green {
+                  color: green;
+              }
+              .yellow {
+                  color: yellow;
+              }
+          </style>
+      </head>
+      <body>
+          <!--이것은 주석입니다.-->
+          <h1>이것은 h1 태그입니다.</h1>
+          <h2>이것은 h2 태그입니다.</h2>
+          <h3>이것은 h3 태그입니다.</h3>
+          <h4 id="green">이것은 h4 태그입니다.</h4>
+          <h5 class="yellow">이것은 h5 태그입니다.</h5>
+          <h6 class="yellow">이것은 h6 태그입니다.</h6>
+  
+          <p style="color : pink;">
+              이것은 p 태그입니다. 
+              이것은 p 태그입니다. 
+              이것은 p 태그입니다. <br>
+              이것은 p 태그입니다. 
+              이것은 p 태그입니다.
+          </p>
+  
+          <ul>
+              <li>리스트 1번째</li>  
+              <li>리스트 2번째</li>
+              <li>리스트 3번째</li>
+          </ul>  
+          <ol>
+              <li>리스트 1번째</li>
+              <li>리스트 2번째</li>
+              <li>리스트 3번째</li>
+          </ol>
+  
+          <div>
+              <b>여기는 div입니다.</b>
+              <i>여기는 div입니다.</i>
+  
+          </div>    
+          
+      </body>
+  </html>
+  ```
+
+### 플라스크 설치
+
+* bash에서 pip install flask
+
+* ```python
+  rom flask import Flask
+  app = Flask(__name__)
+  
+  @app.route("/")
+  def hello():
+      return "Hello World!"
+  ```
+
+* ``` python
+  from flask import Flask, render_template
+  import random
+  
+  app = Flask(__name__)
+  
+  @app.route("/greeting/<string:name>")
+  def greeting(name):
+      return f'반갑습니다.{name}님'
+  
+  @app.route("/cube/<int:num>")
+  def cube(num):
+      cube =num**3 # == num * num * num 
+      return f'{num}의 세제곱은 {cube}입니다.'
+  
+  @app.route("/lunch/<int:person>")
+  def lunch(person) :
+      menu = ['김치찌개', '된장찌개', '부대찌개', '재첩국', '미역국' ,'등심 스테이크', '함바그', '투움바 파스타' ,'로제 파스타']
+      
+      order = random.sample(menu,person)
+      return str(order)
+  
+  @app.route("/html")
+  def html():
+        
+      return '''<h1>이것은 h1 입니다.<h1>
+          <p>여기는 p 입니다. </p>
+          '''
+     
+  
+  @app.route("/html_file")
+  def html_file() :
+      return render_template('html_file.html')
+  
+  @app.route("/hi/<string:name>")
+  def hi(name) :
+          return render_template('hi.html', name = name)
+  
+  @app.route("/fake_naver")
+  def fake_naver():
+          return render_template('fake_naver.html')
+  
+  ```
+
+* ``` python
+  
+  <h1>Naver</h1>
+  <form action="https://search.naver.com/search.naver">
+      <input type="text" name="query">
+      <input type="submit">
+  </form> 
+  
+  <h1>Daum</h1>
+  <form action="https://search.daum.net/search?w=tot&DA=YZR&t__nil_searchbox=btn&sug=&sugo=&">
+      <input type="text" name="q">
+      <input type="submit">
+  </form> 
+  
+  ```
+
 * 
