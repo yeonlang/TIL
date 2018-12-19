@@ -217,3 +217,9 @@ git push -u origin master
   soup = bs4.BeautifulSoup(response, 'html.parser')
   print(response)
   ```
+
+### 유용한사이트
+
+* https://startbootstrap.com/template-categories/all/
+* https://www.acmicpc.net/
+* 
