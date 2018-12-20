@@ -139,7 +139,8 @@ print('각 도시별 최근 3일의 온도 평균은 다음과 같습니다.')
 for key in city :
     a = sum(city[key])/len(city[key]) 
     print(f'{key} : {round(a,1)}')       
-    
-    
+    city[key] = a
+    print(city.values())
 # 3-2 가장 더웠던 곳은?
+
 
