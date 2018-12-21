@@ -41,6 +41,9 @@ git push -u origin master
   cd 주소		# 폴더이동
   cd ..		 # 이전폴더 이동
   mv *.txt day02/dummy/ # txt 확장자의 모든 파일을 day02/dummy 폴더로 이동
+  c9 ~/.bashrc
+  exec $SHELL
+  
   ```
 
 # Day 02
@@ -639,3 +642,7 @@ alt + 좌클릭
       v.extend(t)
   print(f'1반 오늘의 당번은 {random.choice(v)}입니다.')
   ```
+
+# Day05
+
+bash
