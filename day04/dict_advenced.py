@@ -52,7 +52,7 @@ else :
     print("requests 라이브러리가 존재하지 않습니다.")        
 
 comp = ssafy['language']['python']['python standard library']
-print('os' in comp)
+print('os' in comp) #==> os가 comp딕셔너리 내부에 존재하는가?
 
 # 난이도** 3. gm반의 반장의 이름을 출력하세요. : depth 있는 접근
 # 출력예시)
