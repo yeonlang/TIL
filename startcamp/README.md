@@ -108,10 +108,20 @@ git push -u origin master
 ##### Git 설정 및 Commit
 
 * `git status` : 현재 폴더의 git 상태
+
 * `git add .` : 현재 폴더의 변경사항들을 commit 하기 위해서 준비
+
 * `git commit -m 'day 02 입니다.'` : commit, 변경 사항 저장 . 메시지는 자유작성 가능
+
 * `git push -u origin master ` : remote로 등록된 원격 저장소 (remote repository) 
-  * 이후에는 git push 만 입력해도 동작합니다.	
+
+  * 이후에는 git push 만 입력해도 동작합니다.
+
+* `git clone https://github.com/yeonlang/TIL.git                                 ` : 클론을 만든다
+
+* `mv TIL/ Daehyeon/`:TIL의 이름을 바꾼다(혹은 폴더를 이동한다)
+
+   
 
 
 
