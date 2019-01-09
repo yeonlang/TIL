@@ -1,13 +1,47 @@
-lst1=input()
-for i in lst1:
-    if i in 'croak':
-        print('')
+def mycount(start,over,count=0,b=0,newcount=0):
+    for i in 'croak':
+        if i in start:
+            c=start.index(i) 
+            over[over.index(i,b+c)]='-'
+            start[start.index(i,c)]='-'
+
+            newcount+=1
+    if not newcount==5:
+        count+=1
+        return count
+    over.reverse()
+    a=over.index('-')
+    over.reverse()
+    b=len(over)-a
     
+    if newcount==5:
+        mycount(start[b:],over,count,b)
+
+st=list('crocrakcoarkoackcrrooaakkcroak')
+over=st[:]
+mycount(st,over)
 
 
 
 
+num=int(input())
+for nu in range(1,num+1):
+    lsti=list(input())
+    lstc=['c','r','o','a','k']
+    lstu=[j for i in range(int(len(lsti)/5)) for j in lstc]
+    c,r,o,a,k = 0,0,0,0,0
+    count=0    
+    if (lsti[0]!='c')or(lsti[-1]!='k')or(len(lstu)!=len(lsti)):
+        count=-1
+        
 
+                
+        else :
+            count=-1
+    if c==r==o==a==k :
+        print(count)
+    else:
+        print(-1)
 
 
 
