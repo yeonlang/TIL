@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mark up</title>
+    <style>
+        table, tr, td{
+            border: 1.2px solid darkgray;
+        }
+    </style>
+</head>
+<body>
+    <h1>프로그래밍 교육</h1>
+    <a href="https://docs.python.org/ko/3/tutorial/index.html" target="_blank"><img src="image/img1.png" alt="파이썬" width="50px" height="50"></a>
+    <a href="https://developer.mozilla.org/ko/"><img src="image/img2.png" alt="파이썬" width="50px" height="50"></a> <!-- target을 비워놓으면 현재창에서 페이지를 변경한다.-->
+    <a href="index.html" target="_blank">참고사이트</a>
+    
+    <hr>
+    <section id="python">
+        <h2>
+            <a href="https://docs.python.org/ko/3/tutorial/index.html" target="_blank">파이썬</a>
+        </h2>
+        <h3>Number type</h3>
+        <p>파이썬에서 숫자형은 아래와 같이 있다.</p>
+        <ol>
+            <li>int</li>
+            <li>float</li>
+            <li>complex</li>
+            <li><del>str</del></li>
+        </ol>
+        <h3>Sequence</h3>
+        <p>파이썬에서 시퀀스는 아래와 같이 있다.</p>
+        <h4>시퀀스는 for문을 돌릴 수 있다!!</h4>
+        <ol>
+            <li>str</li>
+            <li>list</li>
+            <li>tuple</li>
+            <li>range</li>
+        </ol>
+    </section>
+    <hr>
+    <section id="web">        
+        <h2><a href="https://developer.mozilla.org/ko/" target="_blank">웹</a></h2>
+        <h3>기초</h3>
+        <!-- ul에 style을 적용하면 자식까지 모두 스타일 적용을 받는다. -->
+        <!-- none, square, circle, lower-alpha,
+                upper-alpha, upper-roman, ... -->
+        <ul style="list-style-type: circle;">
+            <li >HTML</li>
+            <li>CSS</li>
+        </ul>
+    </section>
+    
+    <section id="link"></section>
+        <!-- a(anchor) -->
+        <!-- 새로 뜰건지, 현재페이지에서 넘어갈지를 선택
+            _self: 현재페이지
+            _blank: 새페이지 -->
+        <!-- href(hyper rink reference) values
+            1. 절대 URL
+            2. 상대 URL
+            3. element id
+            4. mailto:
+        -->
+        <a href="https://www.google.com" target="_self">절대 URL</a>
+        <a href="index.html" target="_blank">상대 URL</a>
+        <!-- id앞에는 #이 붙는다.  -->
+        <a href="#python">파이썬으로(id pyhton)</a>
+        <!-- 클릭하면 메일 어플레케이션에 뜨고 수신메일에 아래메일이 들어간다 -->
+        <a href="mailto:no.water.in.the.house@gmail.com">메일 보내기</a>
+        
+    </section>
+        
+    <section>
+        <!-- img -->
+        <!--
+            src: 이미지 파일 
+            alt: 이미지의 설명
+            width, height: CSS에서 설정한다.
+         -->
+         <img src="image/img3.jpg" alt="문제" width="800px" height="">
+         <video src="video1.mp4" width="" height="" controls></video>
+         <iframe width="560" height="315" src="https://www.youtube.com/embed/56V5f7hOc2s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+
+    <section>
+        <!-- table -->
+        <table>
+            <tr>
+                <!-- table head -->
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+            </tr>
+            <tr>
+               <!-- table data -->
+               <td>A 코스</td>
+               <td rowspan="2">짬뽕</td>
+               <td></td>
+               <td colspan="2">스파게티</td>
+            </tr>
+            <tr>
+                <td>B 코스</td>
+                <td>초밥</td>
+                <td>감자탕</td>
+            </tr>
+        </table>
+    </section>
+    <section>
+            <table>
+                    <tr>
+                        <!-- table head -->
+                        <th>TIME</th>
+                        <th>INDOOR</th>
+                        <th colspan="2">OUTDOOR</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>소극장</td>
+                        <td>잔디마당</td>
+                        <td>대공연장</td>
+                    </tr>
+                    <tr>
+                       <!-- table data -->
+                       <td>10:00</td>
+                       <td rowspan="2">안녕하신가영</td>
+                       <td></td>
+                       <td colspan="2">10cm</td>
+                    </tr>
+                    <tr>
+                        <td>13:00</td>
+                        <td rowspan="2">선우정아</td>
+                        <td rowspan="2">참깨와 솜사탕</td>
+                    </tr>
+                    <tr>    
+                        <td>15:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>17:00</td>
+                        <td>크러쉬</td>
+                        <td></td>
+                        <td>폴킴</td>   
+                    </tr>
+                </table>
+    </section>
+    
+    <section>
+        <form action="" method="GET">
+            <input type="text">
+            <input type="password">
+            <input type="number" min="15" max="30" step="5">
+            <div>            
+                <input type="radio" name="m" checked>에그 마요<br>
+                <input type="radio" name="m">이탈리안 비엠티<br>
+                <input type="radio" name="m">터키 베이컨 아보카도<br>
+            </div>
+            <div>
+                <input type="checkbox" name="toping">토마토<br>
+                <input type="checkbox" name="toping">오이<br>
+                <input type="checkbox" name="toping">핫 칠리<br>
+                <input type="checkbox" name="toping">할라피뇨<br>
+                <input type="checkbox" name="toping">바베큐 소스<br>
+            </div>
+            <input type="submit" value="Login">
+        </form>
+    </section>
+
+    <select name="" id="">
+        <option>허니 오트</option>
+        <option disabled>플랫 브레드</option>
+        <option selected>파마산 오레가노</option>
+    </select>
+
+    <input type="submit" value="로그인">
+</body>
+</html>
