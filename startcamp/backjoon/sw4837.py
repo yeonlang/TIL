@@ -20,7 +20,8 @@ for test_case in range(1, T + 1):
     N, k = map(int, input().split())
     print(f'#{test_case} {subset(A[:],*[0,0,k,N])}')
 
-
+#1959 1961 1966 1970
+#1974 1976 1979 1983 1984 1986 1989 2001 2005 2007
 
 
         
