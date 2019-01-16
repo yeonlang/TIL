@@ -34,6 +34,27 @@ a[target="_self"] {
     background-color: white;
     padding: 5px;
 }
+img[alt~="ENTP"]{
+    box-shadow: 5px 5px 10px black
+}
+img[alt|="TYPE"]{
+    box-shadow: -5px -5px 10px black
+}
+a[target^="_b"] {
+    background-color: blue;
+    padding: 10px;
+    margin: 30px;
+    color: white;
+    display: inline-block;
+}
+a[href$="istj"]{
+    background-color: green;
+    color: white;
+}
+ul[class*="type"]{
+    text-align: center;
+    padding: 35px 0;
+}
 /* 
     1.[속성="값"]
     2.[속성~="값"] : alt="바다 사진" / [alt~="바다"]
