@@ -10,11 +10,11 @@ for tc in range(int(input())):
             index_lst=score
     lst.sort()
     if lst.index(index_lst)>9*n/10-1:
-        print(f'#{tc+1} B+')
+        print(f'#{tc+1} A+')
     elif lst.index(index_lst)>8*n/10-1:
-        print(f'#{tc+1} B0')
+        print(f'#{tc+1} A0')
     elif lst.index(index_lst)>7*n/10-1:
-        print(f'#{tc+1} B-')
+        print(f'#{tc+1} A-')
     elif lst.index(index_lst)>6*n/10-1:
         print(f'#{tc+1} B+')
     elif lst.index(index_lst)>5*n/10-1:
