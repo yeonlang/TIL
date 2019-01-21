@@ -48,6 +48,20 @@
 
 
 
+## bash profile 설정
+
+* 위치는 ~안에 존재
+
+``` bash
+#파일을 코드형식으로 열어서 보여준다.
+code ~/.bash_profile
+
+#git bash가 변경된 프로파일을 인식할 수 있도록 한다.
+source ~/.bash_profile
+```
+
+
+
 ## Git&GitHub 재설정
 
 ```bash
@@ -84,5 +98,27 @@ git config --global user.email 'naspy001@gmail.com'
 #커밋을 할 시에 들어가는 정보를 수정해준다.
 
 # +)git log : 로그를 보여준다 Q로 빠져나올 수 있다.
+```
+
+
+
+## 새로운 Repositories 생성
+
+```bash
+#먼저 git으로 관리할 폴더를 생성해준다.
+#github에서 레퍼지토리를 생성해준다.
+
+cd 새로운 폴더#git bash에서 관리할 폴더 디렉토리로 접근
+
+git init #이 폴더를 git 으로 관리하겠다.
+
+git add . #폴더 내부의 파일들을 추가.
+
+git commit -m '' #커밋
+
+git remote add origin https~ #원격저장소와 관리할 폴더 연결
+
+git push -u origin master #마스터 권한으로 push
+
 ```
 
