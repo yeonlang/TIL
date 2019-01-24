@@ -8,8 +8,8 @@ for t in range(K):
         mat[i][x1:x2] = [0]*(x2-x1)
                 
 size = []
-dx = [1,-1,0,0]
-dy = [0,0,1,-1]        
+dx = [1,0,-1,0]
+dy = [0,1,0,-1]        
 
 for m in range(M):
     for n in range(N):
@@ -30,7 +30,7 @@ for m in range(M):
                         mat[yy][xx]=0
             
             size.append(count)
-            
+
 
 print(len(size))
 print(*sorted(size))

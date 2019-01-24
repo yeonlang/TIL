@@ -24,12 +24,3 @@ for k,l in enumerate(name):
     if (k+1)%5==0:
         print("")
 print("뒷문")
-
-def sort
-
-    sort
-    return 존재x
-
-def sorted
-
-    return sort
