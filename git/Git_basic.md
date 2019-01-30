@@ -122,3 +122,12 @@ git push -u origin master #마스터 권한으로 push
 
 ```
 
+
+
+## 다른 Repository 연결&PUSH
+
+```bash
+git remote add 관리할이름 주소
+git push 관리할이름 master (기본값은 origin)
+```
+
