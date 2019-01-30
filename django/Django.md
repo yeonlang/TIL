@@ -16,6 +16,7 @@ $ pip install django
 $ django-admin startproject {프로젝트명} .(.은 django admin과 같이 쓰인다.) 
 # . 이 없다면 하위 디렉토리로 한번 더 접근하여 프로젝트를 시작한다.
 $ python manage.py startapp {앱 이름}
+# 프로젝트 이름과 앱 이름은 달라야 한다.
 ```
 
 ##### 어플 폴더로 들어가서 templates 폴더를 생성해준다.
@@ -186,4 +187,69 @@ return redirect('posts:detail', post.pk)
 <!-- 위와 같은 변수를 요구할때-->
 <a href='{% url "posts:detail" post.pk %}'>{{post.title}}</a>
 ```
+
+
+
+## 1:N구조
+
+##### 정의 : `게시글과 댓글처럼 하나의 주격에 여러가지 보조격이 달라붙는 형태`
+
+##### models.py 에 다음과 같은 청사진을 구성해 본다.
+
+```python
+# Post : Comment = 1 : N
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    content = models.TextField()
+
+#ForeignKey항목은 보조격에 붙어있어야 한다. 
+
+# on_delete 옵션
+# 1. CASCADE : 부모가 삭제되면, 자기 자신도 삭제.(ex: 게시글이 삭제되면 댓글도 삭제)
+# 2. PROTECT : 자식이 존재하면, 부모 삭제 불가능.
+# 3. SET_NULL : 부모가 삭제되면, 자식의 부모 정보를 NULL로 변경
+    
+```
+
+##### python shell에서 다음과 같이 확인해보자
+
+```PYTHON
+#python manage.py shell
+from posts.models import Post, Comment
+
+post = Post(title='제목입니다.', content='내용입니다.')
+post.save()
+Post.objects.all()
+
+<QuerySet [<Post: Post object (1)>, <Post: Post object (7)>, <Post: Post object (8)>, <Post: Post object (9)>, <Post: Post object (10)>, <Post: Post object (11)>, <Post: Post object (17)>, <Post: Post object (18)>]>
+
+post = Post.objects.last()
+post
+<Post: Post object (18)>
+
+c = Comment(post=post, content='댓글입니다!')                           c.save()
+
+#코멘트로 접근하여 모든 항목 불러오기
+Comment.objects.all()
+<QuerySet [<Comment: Comment object (1)>]>
+
+#포스트로 접근하여 모든 항목 불러오기
+post.comment_set.all()
+<QuerySet [<Comment: Comment object (1)>]>
+
+# 어떤 코멘트만 가져와서 살펴볼 수도 있다.
+c = Comment.objects.get(pk=1)
+c.post
+<Post: Post object (18)>
+    
+    
+post.comment_set.first()
+<Comment: Comment object (1)>
+
+post.comment_set.first().content
+'댓글입니다!'
+
+```
+
+
 
