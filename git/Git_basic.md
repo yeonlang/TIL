@@ -7,7 +7,7 @@
 
 ## Git repo 를 처음 생성한 경우
 
-* `git inin` : git 초기화, 지금 폴더를 git으로 관리하겠다!	
+* `git init` : git 초기화, 지금 폴더를 git으로 관리하겠다!	
 
   (관리하려는 폴더 안에서 입력)
 
@@ -36,7 +36,6 @@
 * `git commit -m 'D04 | 190107 AM | Git & CLI' ` 
 
 * `git push -u origin master` : remote로 등록된 원격 저장소에 commit한 것들 올리기
-
   * 이후에는 git push  만 입력해도 동작합니다.
 
   * 이 컴퓨터에서 최초 push 인 경우 로그인창이 뜨게 됩니다.
