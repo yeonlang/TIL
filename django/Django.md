@@ -253,3 +253,76 @@ post.comment_set.first().content
 
 
 
+## 이미지 업로드
+
+##### pip install
+
+```bash
+pip install Pillow
+pip install pilkit
+pip install django-imagekit
+```
+
+##### migration-models.py
+
+```python
+from imagekit.models import ProcessedImageField
+from imagekit.processors import ResizeToFill
+
+# 클래스에 아래와 같은 이미지 속성을 지정해준다.
+class Post(models.Model):
+    image = ProcessedImageField(
+            upload_to='posts/images', # 저장 위치
+            processors=[ResizeToFill(300,300)], # 처리할 작업 목록
+            # ResizeToFill : 300,300 맞추고 넘치는 부분 잘라냄
+			# ResizeToFit : 300,300 맞추고 남는 부분을 빈 공간으로 둠
+        	format='JPEG', #저장 포맷 (확장자)
+            options={'quality':90}, #저장 포맷 관련 옵션
+        )
+```
+
+##### 이미지 저장경로 설정
+
+```python
+from django.conf.urls.static import static
+from django.conf import settings
+
+#여러 경로를 추가해줘야하기때문에 기존 경로 아래에 다음과 같은 코드를 작성한다.
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+```
+
+##### settings.py
+
+```python
+INSTALLED_APPS = [
+    'imagekit',
+]
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'crud', 'assets'),   
+]
+#base 프로젝트 폴더 내부, crud/assets 를 기본 폴더로 한다. 
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+```
+
+##### views.py
+
+```python
+#이미지는 파일 형식이기 때문에 FILES로 받아온다.
+def create(request):    
+    image = request.FILES.get('image')
+```
+
+##### html
+
+```python
+#진자 탬플릿을 사용하여 현재 레벨에 있는 static 폴더 내부의 tree.jpg
+<img src="{% static 'tree.jpg' %}">
+#settings에 설정된 경로를 이용
+<img src="{{ post.image.url }}"></img>
+```
+
+
+
