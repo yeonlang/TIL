@@ -25,7 +25,7 @@ $ python manage.py startapp {앱 이름}
 
 ```python
 #실행했을때의 호스트 주소를 입력
-ALLOWED_HOSTS=['playground-닉네임.c9users.io']
+ALLOWED_HOSTS=['최상위폴더이름(ex:playground)-닉네임.c9users.io']
 
 #서버를 실행시켜 준다.
 python manage.py runserver $IP:$PORT
