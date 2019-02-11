@@ -37,7 +37,6 @@
 
 * `git push -u origin master` : remote로 등록된 원격 저장소에 commit한 것들 올리기
   * 이후에는 git push  만 입력해도 동작합니다.
-
   * 이 컴퓨터에서 최초 push 인 경우 로그인창이 뜨게 됩니다.
 
 ## Git Pull
@@ -97,6 +96,7 @@ git config --global user.email 'naspy001@gmail.com'
 #커밋을 할 시에 들어가는 정보를 수정해준다.
 
 # +)git log : 로그를 보여준다 Q로 빠져나올 수 있다.
+
 ```
 
 
@@ -129,4 +129,6 @@ git push -u origin master #마스터 권한으로 push
 git remote add 관리할이름 주소
 git push 관리할이름 master (기본값은 origin)
 ```
+
+
 
