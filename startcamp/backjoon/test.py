@@ -25,3 +25,4 @@ while arr:
             if visit[ax][ay]==0 and maze[ax][ay] == 1:
                 visit[ax][ay] = visit[a][b] + 1
                 arr.append((ax, ay))
+                #~
