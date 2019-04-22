@@ -17,6 +17,10 @@
 
     원격 저장소(이 저장소 중 하나가 git hub의 개인 웹) 수정
 
+* ` git remote -v `  : 원격저장소 정보 확인 가능
+
+
+
 ## Git repo clone 한 경우
 
 * `git clone 주소 [폴더이름]` 
