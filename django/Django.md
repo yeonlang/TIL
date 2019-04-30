@@ -375,3 +375,15 @@ TEMPLATES = [
 {% endblock %}
 ```
 
+
+
+### 설치프로그램
+
+```python
+django==2.1.8
+djangorestframework
+django-rest-swagger
+```
+
+
+
