@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <button id="post">get</button>
+    <button id="get">post</button>
+    <script>        
+        const b1 = document.querySelector('#post')
+        const b2 = document.querySelector('#get')
+        b1.addEventListener('click', function(event){
+            axios.get('http://13.125.249.144:8080/ssafy/gumi/1/posts') 
+                .then(function (response) {
+                console.log(response); 
+                document.write(response.data.posts)             
+                })
+
+        })
+        b2.addEventListener('click', function(event){
+            axios.post('http://13.125.249.144:8080/ssafy/gumi/1/posts', {
+                post : {                
+                    title : 'hello',
+                    content: 'hi',
+                    author : 'me',
+                }
+            })
+            .then( response => { 
+                console.log(response) 
+            })
+        })    
+        </script>
+    
+</body>
+</html>

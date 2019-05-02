@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!-- 목표 : event -->
+    <div id="my"></div>
+    <button id="this-button">Click me</button>
+
+    <script>
+        // Event Listener [무엇][언제][어떻게]
+        // 1. 무엇을?  button
+        const button = document.querySelector('#this-button')
+
+        // 2. 언제? 눌렀을때  3.어떻게? 작업을 실행
+        // 이벤트 리스너를 추가한다.(인자1 : 행위, 인자2 : 행동)
+        const area = document.querySelector('#my')
+        button.addEventListener('click',function(evnet){
+        area.innerHTML = '<h1>니스피</h1>'
+        })
+
+
+    </script>
+</body>
+</html>
