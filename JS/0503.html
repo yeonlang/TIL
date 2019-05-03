@@ -10,6 +10,21 @@
 <body>
     <div id="app">
         {{ message }} - {{ count }}
+        <p v-if='checked'>이건 보임</p>
+        <li v-for='post in posts'>
+            {{ post }}
+        </li>
+
+        <li v-for='key in Object.keys(student)'>
+            {{ key }}
+        </li>
+        <li v-for='value in student'>
+            {{ value }}
+        </li>        
+        <li v-for='key in Object.keys(student)'>
+            {{ key }} - {{ student[key] }}
+        </li>
+
     </div>
 
     <script>
@@ -18,6 +33,12 @@
             data:{ // 무엇을
                 message:'Hellow, Vue!',
                 count : 0,
+                checked: true,
+                posts: ['first','second','third',],
+                student : {
+                    name : 'daehyeon',
+                    school : 'KNU',
+                },
             },
             methods : { //어떻게
                 // this.message 와 같이 인스턴스 변수 사용가능
