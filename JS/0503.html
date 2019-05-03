@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ message }} - {{ count }}
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app', // 어디에
+            data:{ // 무엇을
+                message:'Hellow, Vue!',
+                count : 0,
+            },
+            methods : { //어떻게
+                // this.message 와 같이 인스턴스 변수 사용가능
+                plus : function(){
+                    this.count++
+                }
+            },
+        })
+    </script>
+</body>
+</html>
